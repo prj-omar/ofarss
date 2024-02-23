@@ -1,0 +1,182 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    overflow: hidden;
+}
+.co{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 247, 255, 0.39);
+    background-size: cover;
+    background-position: 50% 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.co::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.con{
+    max-width: 700px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+.con h1{
+    font-size: 4.3rem;
+    margin-bottom: .8rem;
+    color: #fff44f;
+    font-family:"dancing script", cursive;
+}
+.con p{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+.btn{
+    padding: .75rem 1.25rem;
+    margin-top: .8rem;
+    font-size: 1.1rem;
+    font-weight: 550;
+    color: #fff44f;
+    background-color: #111;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: .3s;
+}
+.btn:hover{
+    opacity: .7;
+}
+.mk{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.to{
+    position: absolute;
+    top: 0.5rem;
+    left: .5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 3;
+    cursor: pointer;
+}
+.hm{
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.hm>div{
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: #fff44f;
+    transition: .4s;
+}
+.hm>div::before,.hm>div::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    background-color: #fff44f;
+    transition: .4s;
+}
+.hm>div::before{
+    top: -10px;
+}
+.hm>div::after{
+    top: 10px;
+}
+.to:checked + .hm>div{
+    transform: rotate(135deg);
+}
+.to:checked:hover + .hm>div{
+    transform: rotate(225deg);
+}
+.to:checked + .hm>div::after,.to:checked + .hm>div::before{
+    transform: rotate(90deg);
+    top: 0;
+}
+.to:checked ~ .me{
+    visibility: visible;
+}
+.to:checked ~ .me>div{
+    transform: translateX(-50%) translateY(-50%);
+}
+.to:checked ~ .me>div>div{
+    opacity: 1;
+}
+.me{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    transition: .6s;
+}
+.me>div{
+    position: absolute;
+    width: 1600px;
+    height: 1600px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-150%) translateY(-50%);
+    background-color: rgba(0, 0, 0, .9);
+    transition: .6s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.me>div>div{
+    max-width: 90vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    opacity: 0;
+}
+.me>div>div>ul>li{
+    list-style: none;
+}
+.me>div>div>ul>li>a{
+    text-decoration: none;
+    margin: .5rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 550;
+    text-transform: uppercase;
+    color: #fff;
+    transition: .3s;
+}
+.me>div>div>ul>li>a:hover{
+    color: #fff44f;
+}
